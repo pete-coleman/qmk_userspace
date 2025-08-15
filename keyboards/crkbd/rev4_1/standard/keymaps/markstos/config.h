@@ -8,6 +8,17 @@ This is the C configuration file for the keymap
 
 #pragma once
 
+//#define USE_MATRIX_I2C
+
+/* Select hand configuration */
+
+// #define MASTER_LEFT
+#define MASTER_RIGHT
+// #define EE_HANDS
+
+//#define SSD1306OLED
+
+
 // By default, when holding a dual-function key shortly after tapping it, the
 // tapped key will begin repeating. This is handy for fast typists when typing
 // words with double letters, such as "happy". If you turn this setting ON, it
@@ -26,6 +37,15 @@ This is the C configuration file for the keymap
 // enabled, the dual-role key will perform its hold action instead.
 #define HOLD_ON_OTHER_KEY_PRESS
 
+// markstos: not sure if these are correct
+// They are intended to beep and flash during flashing
+#define QMK_LED     D5
+#define QMK_SPEAKER C6
+
+// Prevent normal rollover on alphas from accidentally triggering mods.
+// Removed because it's now default
+//#define IGNORE_MOD_TAP_INTERRUPT
+
 // When enabled, typing a mod-tap plus second within term will register as the mod-combo
 // Ref: https://beta.docs.qmk.fm/using-qmk/software-features/tap_hold#permissive-hold
 #define PERMISSIVE_HOLD
@@ -39,8 +59,6 @@ This is the C configuration file for the keymap
 // These mostly affect my one-shot Shift key, providing a CapsLock alternative.
 // I want a relatively low timeout, so if I accidentally type "Shift", I can pause just briefly and move on.
 #define ONESHOT_TAP_TOGGLE 3  /* Tapping this number of times holds the key until tapped once again. */
-#define ONESHOT_TIMEOUT 1000  /* Time (in ms) before the one shot key is released */
+#define ONESHOT_TIMEOUT 2000  /* Time (in ms) before the one shot key is released */
 
-#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
-#define CAPS_WORD_INVERT_ON_SHIFT
-#define CAPS_WORD_IDLE_TIMEOUT 1000
+#define POINTING_DEVICE_COMBINED
