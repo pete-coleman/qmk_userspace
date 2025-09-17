@@ -17,6 +17,7 @@ enum layers {
   _LOWER,
   _RAISE,
   _FUNC,
+  _GAMING
 };
 
 // These are defined to make the keymap below display nicely, not for any other reason
@@ -24,22 +25,25 @@ enum layers {
 #define COLON       S(KC_SCLN)
 #define CTL_ENT     LCTL_T(KC_ENT)
 #define CTL_SPC     LCTL_T(KC_SPC)
+#define GAMING      TT(_GAMING)
 #define LOW_TAB     LT(_LOWER, KC_TAB)
 #define OSL_FUN     OSL(_FUNC)
 #define OSM_AGR     OSM(MOD_RALT)
-#define OSM_CTL    OSM(MOD_LCTL)
+#define OSM_CTL     OSM(MOD_LCTL)
 #define OSM_GUI     OSM(MOD_RALT)
-#define OSM_LALT     OSM(MOD_LALT)
-#define OSM_RALT     OSM(MOD_RALT)
+#define OSM_LALT    OSM(MOD_LALT)
+#define OSM_RALT    OSM(MOD_RALT)
 #define OSM_SFT     OSM(MOD_LSFT)
 #define PIPE        S(KC_NUBS)
+#define QWERTY      TO(_QWERTY)
 #define RSE_BSP     LT(_RAISE, KC_BSPC)
+#define SFT_TAB     LSFT_T(KC_TAB)
 #define TOP         C(KC_HOME)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-        KC_NO,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                     KC_6    ,KC_7    ,KC_8    ,KC_9    ,KC_0    ,KC_NO   ,
+        KC_NO,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                     KC_6    ,KC_7    ,KC_8    ,KC_9    ,KC_0    ,GAMING  ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y    ,KC_U    ,KC_I    ,KC_O    , KC_P   ,KC_DEL  ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -87,6 +91,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_TRNS,   KC_NO,   KC_F7,   KC_F8,   KC_F9,  KC_F12, KC_TRNS,   KC_TRNS ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_TRNS ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,   KC_TRNS ,KC_TRNS ,KC_TRNS ,KC_TRNS ,KC_TRNS
+                    //`--------------------------------------------'  `--------------------------------------------'
+  ),
+  [_GAMING] = LAYOUT(
+  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+        KC_NO,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                     KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,QWERTY  ,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                     KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      KC_CAPS,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                     KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+      KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B, KC_MUTE,   KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                          KC_NO,   KC_NO, KC_LCTL,    KC_C,  KC_SPC,   KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO
                     //`--------------------------------------------'  `--------------------------------------------'
   )
 };
